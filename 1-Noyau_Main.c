@@ -16,8 +16,8 @@ void Affiche_Alien_1() {
 
 void Affiche_Alien_2() {
 	Affiche_Chaine_XY_Couleur(0, 2, "       .-''''-.", BLEU);
-	Affiche_Chaine_XY_Couleur(0, 3, "      /        \\", BLEU);
-	Affiche_Chaine_XY_Couleur(0, 4, "     /_        _\\", BLEU);
+	Affiche_Chaine_XY_Couleur(0, 3, "      /  _____ \\", BLEU);
+	Affiche_Chaine_XY_Couleur(0, 4, "     /_   ___  _\\", BLEU);
 	Affiche_Chaine_XY_Couleur(0, 5, "    // \\      / \\\\", BLEU);
 	Affiche_Chaine_XY_Couleur(0, 6, "    |\\_0\\    /_0/|", BLEU);
 	Affiche_Chaine_XY_Couleur(0, 7, "     \\    ||    /", BLEU);
@@ -31,6 +31,20 @@ void OS_Start() {
 	Efface_Ecran();
 	Affiche_Chaine_XY(0, 0, "blah");
 	Affiche_Chaine_XY_Couleur(0, 1, "rabiougra", BLEU);
-	//Affiche_Alien_1();
-	Affiche_Alien_2();
+	while (1) {
+		int i = 0;
+		int boucle = 5000;
+
+		for (i = 0; i < boucle; i++) {
+			//asm('NOP');
+			Affiche_Alien_1();
+		}
+		
+
+		for (i = 0; i < boucle; i++) {
+			//asm('NOP');
+			Affiche_Alien_2();
+		}
+		
+	}
 }
