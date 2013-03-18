@@ -1,34 +1,43 @@
 
 #include "video.h"
 
-void Affiche_Alien_1() {
-	printfcolor("       .-''''-.", BLEU);
-	printfcolor("      /        \\", BLEU);
-	printfcolor("     /_        _\\", BLEU);
-	printfcolor("    // \\      / \\\\", BLEU);
-	printfcolor("    |\\__\\    /__/|", BLEU);
-	printfcolor("     \\    ||    /", BLEU);
-	printfcolor("      \\        /", BLEU);
-	printfcolor("       \\  __  /", BLEU);
-	printfcolor("        '.__.'", BLEU);
-	printfcolor("         |  |", BLEU);
+void Affiche_Alien_1(BYTE color) {
+	BYTE prevColor = getColor();
+	setColor(color);
+	printfcolor("       .-''''-.");
+	printfcolor("      /        \\");
+	printfcolor("     /_        _\\");
+	printfcolor("    // \\      / \\\\");
+	printfcolor("    |\\__\\    /__/|");
+	printfcolor("     \\    ||    /");
+	printfcolor("      \\        /");
+	printfcolor("       \\  __  /");
+	printfcolor("        '.__.'");
+	printfcolor("         |  |");
+	setColor(prevColor);
 }
 
-void Affiche_Alien_2() {
-	printfcolor("       .-''''-.", BLEU);
-	printfcolor("      /  _____ \\", BLEU);
-	printfcolor("     /_   ___  _\\", BLEU);
-	printfcolor("    // \\      / \\\\", BLEU);
-	printfcolor("    |\\_0\\    /_0/|", BLEU);
-	printfcolor("     \\    ||    /", BLEU);
-	printfcolor("      \\   __   /", BLEU);
-	printfcolor("       \\ |__| /", BLEU);
-	printfcolor("        '.__.'", BLEU);
-	printfcolor("         |  |", BLEU);
+void Affiche_Alien_2(BYTE color) {
+	BYTE prevColor = getColor();
+	setColor(color);
+	printfcolor("       .-''''-.");
+	printfcolor("      /  _____ \\");
+	printfcolor("     /_   ___  _\\");
+	printfcolor("    // \\      / \\\\");
+	printfcolor("    |\\_0\\    /_0/|");
+	printfcolor("     \\    ||    /");
+	printfcolor("      \\   __   /");
+	printfcolor("       \\ |__| /");
+	printfcolor("        '.__.'");
+	printfcolor("         |  |");
+	setColor(prevColor);
 }
 
 void copyright() {
-	printfcolor("Ceci est un os GPL v.2", ROUGE);
+	BYTE prevColor = getColor();
+	setColor(ROUGE);
+	printfcolor("Ceci est un os GPL v.2");
+	setColor(prevColor);
 }
 
 void OS_Start() {
@@ -45,14 +54,14 @@ void OS_Start() {
 
 		for (i = 0; i < boucle; i++) {
 			copyright();
-			Affiche_Alien_1();
+			Affiche_Alien_1(VERT);
 			reset_Cursor();
 		}
 
 
 		for (i = 0; i < boucle; i++) {
 			copyright();
-			Affiche_Alien_2();
+			Affiche_Alien_2(VERT);
 			reset_Cursor();
 
 		}

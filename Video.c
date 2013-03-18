@@ -12,7 +12,16 @@ T_CARACTERE_ECRAN* Map_Video = (T_CARACTERE_ECRAN*) ADRESSE_BASE_VIDEO;
 
 BYTE ECRAN_Curseur_X = 0;
 BYTE ECRAN_Curseur_Y = 0;
+BYTE ECRAN_Color = BLANC;
 //==============================================================================
+
+void setColor(BYTE color) {
+	ECRAN_Color = color;
+}
+
+BYTE getColor() {
+	return ECRAN_Color;
+}
 
 inline void Affiche_Curseur() {
 #define outb(P_Port, P_Valeur) asm volatile ("outb %%al, %%dx" ::"d"(P_Port), "a"(P_Valeur));
@@ -64,8 +73,8 @@ void printfme(char* P_Chaine) {
 	Affiche_Curseur();
 }
 
-void printfcolor(char* P_Chaine, BYTE P_Attribut) {
-	Affiche_Chaine_XY_Couleur(ECRAN_Curseur_X, ECRAN_Curseur_Y, P_Chaine, P_Attribut);
+void printfcolor(char* P_Chaine) {
+	Affiche_Chaine_XY_Couleur(ECRAN_Curseur_X, ECRAN_Curseur_Y, P_Chaine, ECRAN_Color);
 	ECRAN_Curseur_Y++;
 	Affiche_Curseur();
 }
