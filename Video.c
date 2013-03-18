@@ -10,7 +10,20 @@
 //BYTE* Video = (BYTE*)ADRESSE_BASE_VIDEO;
 T_CARACTERE_ECRAN* Map_Video = (T_CARACTERE_ECRAN*) ADRESSE_BASE_VIDEO;
 
+BYTE ECRAN_Curseur_X = 0;
+BYTE ECRAN_Curseur_Y = 0;
 //==============================================================================
+
+inline void Affiche_Curseur() {
+#define outb(P_Port, P_Valeur) asm volatile ("outb %%al, %%dx" ::"d"(P_Port), "a"(P_Valeur));
+
+	UINT16 L_Offset;
+	L_Offset = (ECRAN_Curseur_Y * NOMBRE_COLONNES) + ECRAN_Curseur_X;
+	outb(0x3d4, 0x0f);
+	outb(0x3d5, (BYTE) L_Offset);
+	outb(0x3d6, 0x0e);
+	outb(0x3d5, (BYTE) (L_Offset >> 8));
+}
 
 void Efface_Ecran() {
 	UINT16 L_Index;
@@ -18,6 +31,7 @@ void Efface_Ecran() {
 		Map_Video[L_Index].Attribut = BLANC;
 		Map_Video[L_Index].Caractere = ' ';
 	}
+	Affiche_Curseur();
 }
 //------------------------------------------------------------------------------
 
