@@ -21,7 +21,7 @@ inline void Affiche_Curseur() {
 	L_Offset = (ECRAN_Curseur_Y * NOMBRE_COLONNES) + ECRAN_Curseur_X;
 	outb(0x3d4, 0x0f);
 	outb(0x3d5, (BYTE) L_Offset);
-	outb(0x3d6, 0x0e);
+	outb(0x3d4, 0x0e);
 	outb(0x3d5, (BYTE) (L_Offset >> 8));
 }
 
