@@ -2,49 +2,53 @@
 #include "video.h"
 
 void Affiche_Alien_1() {
-	Affiche_Chaine_XY_Couleur(0, 2, "       .-''''-.", BLEU);
-	Affiche_Chaine_XY_Couleur(0, 3, "      /        \\", BLEU);
-	Affiche_Chaine_XY_Couleur(0, 4, "     /_        _\\", BLEU);
-	Affiche_Chaine_XY_Couleur(0, 5, "    // \\      / \\\\", BLEU);
-	Affiche_Chaine_XY_Couleur(0, 6, "    |\\__\\    /__/|", BLEU);
-	Affiche_Chaine_XY_Couleur(0, 7, "     \\    ||    /", BLEU);
-	Affiche_Chaine_XY_Couleur(0, 8, "      \\        /", BLEU);
-	Affiche_Chaine_XY_Couleur(0, 9, "       \\  __  /", BLEU);
-	Affiche_Chaine_XY_Couleur(0, 10, "        '.__.'", BLEU);
-	Affiche_Chaine_XY_Couleur(0, 11, "         |  |", BLEU);
+	printfcolor("       .-''''-.", BLEU);
+	printfcolor("      /        \\", BLEU);
+	printfcolor("     /_        _\\", BLEU);
+	printfcolor("    // \\      / \\\\", BLEU);
+	printfcolor("    |\\__\\    /__/|", BLEU);
+	printfcolor("     \\    ||    /", BLEU);
+	printfcolor("      \\        /", BLEU);
+	printfcolor("       \\  __  /", BLEU);
+	printfcolor("        '.__.'", BLEU);
+	printfcolor("         |  |", BLEU);
 }
 
 void Affiche_Alien_2() {
-	Affiche_Chaine_XY_Couleur(0, 2, "       .-''''-.", BLEU);
-	Affiche_Chaine_XY_Couleur(0, 3, "      /  _____ \\", BLEU);
-	Affiche_Chaine_XY_Couleur(0, 4, "     /_   ___  _\\", BLEU);
-	Affiche_Chaine_XY_Couleur(0, 5, "    // \\      / \\\\", BLEU);
-	Affiche_Chaine_XY_Couleur(0, 6, "    |\\_0\\    /_0/|", BLEU);
-	Affiche_Chaine_XY_Couleur(0, 7, "     \\    ||    /", BLEU);
-	Affiche_Chaine_XY_Couleur(0, 8, "      \\   __   /", BLEU);
-	Affiche_Chaine_XY_Couleur(0, 9, "       \\ |__| /", BLEU);
-	Affiche_Chaine_XY_Couleur(0, 10, "        '.__.'", BLEU);
-	Affiche_Chaine_XY_Couleur(0, 11, "         |  |", BLEU);
+	printfcolor("       .-''''-.", BLEU);
+	printfcolor("      /  _____ \\", BLEU);
+	printfcolor("     /_   ___  _\\", BLEU);
+	printfcolor("    // \\      / \\\\", BLEU);
+	printfcolor("    |\\_0\\    /_0/|", BLEU);
+	printfcolor("     \\    ||    /", BLEU);
+	printfcolor("      \\   __   /", BLEU);
+	printfcolor("       \\ |__| /", BLEU);
+	printfcolor("        '.__.'", BLEU);
+	printfcolor("         |  |", BLEU);
 }
 
 void OS_Start() {
 	Efface_Ecran();
+	printfme("test");
+	printfme("je suis un bouleyt");
 	Affiche_Chaine_XY(0, 0, "blah");
 	Affiche_Chaine_XY_Couleur(0, 1, "rabiougra", BLEU);
+	Efface_Ecran();
 	while (1) {
 		int i = 0;
 		int boucle = 5000;
 
 		for (i = 0; i < boucle; i++) {
-			//asm('NOP');
 			Affiche_Alien_1();
+			reset_Cursor();
 		}
-		
+
 
 		for (i = 0; i < boucle; i++) {
-			//asm('NOP');
 			Affiche_Alien_2();
+			reset_Cursor();
+
 		}
-		
+
 	}
 }
