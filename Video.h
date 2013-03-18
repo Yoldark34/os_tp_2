@@ -22,7 +22,6 @@
 //------------------------------------------------------------------------------
 
 #pragma pack(1)
-
 typedef struct {
 	UCHAR Caractere;
 	BYTE Attribut;
