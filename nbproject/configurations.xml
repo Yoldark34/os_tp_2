@@ -52,7 +52,13 @@
         </fortranCompilerTool>
         <asmTool>
           <developmentMode>5</developmentMode>
+          <commandLine>-f elf</commandLine>
         </asmTool>
+        <linkerTool>
+          <output>${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/noyau.jlv</output>
+          <commandlineTool>i586-pc-elf-ld.exe</commandlineTool>
+          <commandLine>-Ttext=0x100000 --entry=_start --oformat i586-pc-elf</commandLine>
+        </linkerTool>
       </compileType>
     </conf>
   </confs>

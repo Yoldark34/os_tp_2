@@ -48,18 +48,18 @@ CXXFLAGS=
 FFLAGS=
 
 # Assembler Flags
-ASFLAGS=
+ASFLAGS=-f elf
 
 # Link Libraries and Options
 LDLIBSOPTIONS=
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
-	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/os_tp_2.exe
+	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/noyau.jlv.exe
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/os_tp_2.exe: ${OBJECTFILES}
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/noyau.jlv.exe: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
-	${LINK.c} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/os_tp_2 ${OBJECTFILES} ${LDLIBSOPTIONS}
+	i586-pc-elf-ld.exe -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/noyau.jlv ${OBJECTFILES} ${LDLIBSOPTIONS} -Ttext=0x100000 --entry=_start --oformat i586-pc-elf
 
 # Subprojects
 .build-subprojects:
@@ -67,7 +67,7 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/os_tp_2.exe: ${OBJECTFILES}
 # Clean Targets
 .clean-conf: ${CLEAN_SUBPROJECTS}
 	${RM} -r ${CND_BUILDDIR}/${CND_CONF}
-	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/os_tp_2.exe
+	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/noyau.jlv.exe
 
 # Subprojects
 .clean-subprojects:

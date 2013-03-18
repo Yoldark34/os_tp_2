@@ -17,8 +17,8 @@ CND_PACKAGE_PATH_Debug=dist/Debug/MinGW_ELF-Windows/package/ostp2.tar
 # Release configuration
 CND_PLATFORM_Release=MinGW_ELF-Windows
 CND_ARTIFACT_DIR_Release=dist/Release/MinGW_ELF-Windows
-CND_ARTIFACT_NAME_Release=os_tp_2
-CND_ARTIFACT_PATH_Release=dist/Release/MinGW_ELF-Windows/os_tp_2
+CND_ARTIFACT_NAME_Release=noyau.jlv
+CND_ARTIFACT_PATH_Release=dist/Release/MinGW_ELF-Windows/noyau.jlv
 CND_PACKAGE_DIR_Release=dist/Release/MinGW_ELF-Windows/package
 CND_PACKAGE_NAME_Release=ostp2.tar
 CND_PACKAGE_PATH_Release=dist/Release/MinGW_ELF-Windows/package/ostp2.tar
