@@ -34,7 +34,9 @@ include Makefile
 OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
-OBJECTFILES=
+OBJECTFILES= \
+	${OBJECTDIR}/0-Noyau_Start.o \
+	${OBJECTDIR}/1-Noyau_Main.o
 
 
 # C Compiler Flags
@@ -60,6 +62,15 @@ LDLIBSOPTIONS=
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/noyau.jlv.exe: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	i586-pc-elf-ld.exe -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/noyau.jlv ${OBJECTFILES} ${LDLIBSOPTIONS} -Ttext=0x100000 --entry=_start --oformat i586-pc-elf
+
+${OBJECTDIR}/0-Noyau_Start.o: 0-Noyau_Start.asm 
+	${MKDIR} -p ${OBJECTDIR}
+	$(AS) $(ASFLAGS) -f elf -o ${OBJECTDIR}/0-Noyau_Start.o 0-Noyau_Start.asm
+
+${OBJECTDIR}/1-Noyau_Main.o: 1-Noyau_Main.c 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} $@.d
+	$(COMPILE.c) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/1-Noyau_Main.o 1-Noyau_Main.c
 
 # Subprojects
 .build-subprojects:
