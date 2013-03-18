@@ -27,6 +27,10 @@ void Affiche_Alien_2() {
 	printfcolor("         |  |", BLEU);
 }
 
+void copyright() {
+	printfcolor("Ceci est un os GPL v.2", ROUGE);
+}
+
 void OS_Start() {
 	Efface_Ecran();
 	printfme("test");
@@ -35,16 +39,19 @@ void OS_Start() {
 	Affiche_Chaine_XY_Couleur(0, 1, "rabiougra", BLEU);
 	Efface_Ecran();
 	while (1) {
+
 		int i = 0;
 		int boucle = 5000;
 
 		for (i = 0; i < boucle; i++) {
+			copyright();
 			Affiche_Alien_1();
 			reset_Cursor();
 		}
 
 
 		for (i = 0; i < boucle; i++) {
+			copyright();
 			Affiche_Alien_2();
 			reset_Cursor();
 
